@@ -1,0 +1,26 @@
+{
+  "name": "admin",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.2.16",
+    "json3": "~3.3.1",
+    "es5-shim": "~3.1.0",
+    "angular-resource": "1.2.16",
+    "angular-cookies": "1.2.16",
+    "angular-sanitize": "1.2.16",
+    "angular-animate": "1.2.16",
+    "angular-touch": "1.2.16",
+    "angular-route": "1.2.16",
+    "fontawesome": "~4.2.0",
+    "classie": "https://raw.githubusercontent.com/desandro/classie/master/classie.js",
+    "modernizr.custom": "http://giorgioscappaticcio.co.uk/skin_ink/admin/js/modernizr.custom.js",
+    "uiMorphingButton_fixed": "http://giorgioscappaticcio.co.uk/skin_ink/admin/js/uiMorphingButton_fixed.js"
+    
+    
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.16",
+    "angular-scenario": "1.2.16"
+  },
+  "appPath": "app"
+}

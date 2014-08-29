@@ -1,0 +1,38 @@
+<div id="boxgallery" class="boxgallery">
+    <div class="panel">
+        <div class="bg-tile" >
+            <div class="bg-img" style="background-color:#030c22" ng-click="showFullPage('#030c22'); fb_integration = true;">
+                <div class="label-panel">
+                    <i class="fa fa-facebook-square"></i>
+                    <p>Manage Facebook Integration</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-tile">
+            <div class="bg-img" style="background-color:#20293f" ng-click="showFullPage('#20293f')">
+                <div class="label-panel">
+                    <i class="fa fa-picture-o"></i>
+                    <p>Manage Homepage Pictures Slider</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-tile">
+            <div class="bg-img" style="background-color:#404749" ng-click="showFullPage('#404749')">
+                <div class="label-panel">
+                    <i class="fa fa-file-text"></i>
+                    <p>Manage News</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-tile">
+            <div class="bg-img" style="background-color:#a9b0b3" ng-click="showFullPage('#a9b0b3')">
+                <div class="label-panel">
+                    <i class="fa fa-users"></i>
+                    <p>Manage Users</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fullpage" fullpage ng-show="isVisible" ng-style="fullpagestyle"></div>
