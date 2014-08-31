@@ -14,9 +14,9 @@
     "fontawesome": "~4.2.0",
     "classie": "https://raw.githubusercontent.com/desandro/classie/master/classie.js",
     "modernizr.custom": "http://giorgioscappaticcio.co.uk/skin_ink/admin/js/modernizr.custom.js",
-    "uiMorphingButton_fixed": "http://giorgioscappaticcio.co.uk/skin_ink/admin/js/uiMorphingButton_fixed.js"
-    
-    
+    "uiMorphingButton_fixed": "http://giorgioscappaticcio.co.uk/skin_ink/admin/js/uiMorphingButton_fixed.js",
+    "jquery": "~2.1.1",
+    "jquery-form": "~3.46.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

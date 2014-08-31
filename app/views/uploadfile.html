@@ -1,0 +1,12 @@
+<div id="upload-wrapper" ng-class="{show_upload_wrapper:  showUploader==true}">
+	<form action="{{actionUrl}}" method="post" enctype="multipart/form-data" id="MyUploadForm">
+		<input name="FileInput" id="FileInput" type="file" />
+		<input type="submit"  id="submit-btn" value="Upload" />
+		<i id="loading-img" style="display:none;" class="fa fa-cog rotate"></i>
+	</form>
+	<div id="progressbox" >
+		<div id="progressbar"></div>
+		<div id="statustxt">0%</div>
+	</div>
+	<div id="output"></div>
+</div>

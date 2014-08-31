@@ -28,5 +28,6 @@ angular.module('adminApp')
 		$scope.fb_integration = false;
 		$scope.shownews = false;
 	}
+
 });
 

@@ -262,11 +262,19 @@ module.exports = function (grunt) {
     htmlmin: {
       dist: {
         options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
+          collapseBooleanAttributes:      true,
+          collapseWhitespace:             true,
+          removeAttributeQuotes:          true,
+          removeComments:                 true, // Only if you don't use comment directives!
+          removeEmptyAttributes:          true,
+          removeRedundantAttributes:      true,
+          removeScriptTypeAttributes:     true,
+          removeStyleLinkTypeAttributes:  true
+          // collapseWhitespace: true,
+          // conservativeCollapse: true,
+          // collapseBooleanAttributes: true,
+          // removeCommentsFromCDATA: true,
+          // removeOptionalTags: true
         },
         files: [{
           expand: true,
@@ -352,6 +360,8 @@ module.exports = function (grunt) {
       }
     }
   });
+
+  
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {

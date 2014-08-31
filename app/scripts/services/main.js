@@ -150,6 +150,48 @@ angular.module('adminApp')
 	 		return d.promise;
    		};
 
+   		this.insert_news = function(params) {
+
+			var d = $q.defer();
+
+			$http({
+				method: 'GET', 
+				url: 'http://giorgioscappaticcio.co.uk/skin_ink/admin/queries/insert_news.php', 
+				params: params
+			}).
+	 	    success(function(data, status, headers, config) {
+	 	    	//console.log (data)
+	 	    	var superData = data
+	 	    	return d.resolve(superData)
+	 	    }).
+	 	    error(function(data, status, headers, config) {
+	 	      return d.reject('you got a problem');
+	 	    });
+	 		
+	 		return d.promise;
+   		};
+
+   		this.update_news = function(params) {
+
+			var d = $q.defer();
+
+			$http({
+				method: 'GET', 
+				url: 'http://giorgioscappaticcio.co.uk/skin_ink/admin/queries/update_news.php', 
+				params: params
+			}).
+	 	    success(function(data, status, headers, config) {
+	 	    	//console.log (data)
+	 	    	var superData = data
+	 	    	return d.resolve(superData)
+	 	    }).
+	 	    error(function(data, status, headers, config) {
+	 	      return d.reject('you got a problem');
+	 	    });
+	 		
+	 		return d.promise;
+   		};
+
    		this.get_gallery = function() {
 
 			var d = $q.defer();

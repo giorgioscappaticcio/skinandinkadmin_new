@@ -1,0 +1,194 @@
+	<!-- <pre>{{tattooData}}</pre> -->
+	<div class="col col-left">
+		<div class="morph-button morph-button-modal morph-button-modal-3 modal-big morph-button-fixed">
+	        <button type="button" ng-click="startForm()"><i class="fa fa-plus-circle"></i> Add News</button>
+	        <div class="morph-content">
+	            <div>
+	                <div class="content-style-form content-style-form-1">
+	                    <span class="icon icon-close" ng-click="startForm()">Close the dialog</span>
+	                    <h2>
+	                    	<span ng-bind-html="mainTitle"></span>
+	                    	<span class="btn blue" ng-show="viewGallery" ng-click="showFileUploader()"><i class="fa fa-plus-square"></i> Add Picture</span>
+	                    	<span class="btn" ng-show="viewGallery || showConfirm" ng-click="backToAdd()"><i class="fa fa-reply"></i> Back</span>
+	                    	<span class="btn" ng-show="alertMsg" ng-click="backToGallery()"><i class="fa fa-reply"></i> Back to Gallery</span>
+	                    </h2>
+	                    <!-- File Uploader -->
+	                    <div uploadfile section="news"></div>
+	                    <!-- Update Message -->
+	                    <div class="wrap-message">
+		                    <div class="success-message" ng-show="successMsg">
+		                    	<p ng-bind-html="messageAdd"></p>
+		                    </div>
+		                </div>
+		                <!-- Loader -->
+	                    <div class="loader" ng-show="showLoader">
+	                    	<i class="fa fa-cog rotate"></i>
+	                    </div>
+	                    <!-- Add News Form -->
+	                    <form ng-show="viewForm">
+							<p>
+								<label for="news_title">News Title: </label>
+								<input type="text" name="news_title" ng-model="newsData.news_title" placeholder="Add News title" />
+							</p>
+							<p>
+								<label for="news_content">News Content: </label>
+								<textarea name="news_content" ng-model="newsData.news_content"></textarea>
+							</p>
+							<p class="clearfix">
+								<label for="news_picture">Picture: </label>
+								<input class="inputwithbtn" type="text" name="news_picture" placeholder="Click open gallery" ng-model="newsData.news_picture"/>
+								<button class="sideinput" ng-click="display_gallery()"><i class="fa fa-file-image-o"></i> Gallery</button>
+							</p>
+							<p>
+								<label for="news_youtube">Youtube link: </label>
+								<input type="text" name="news_youtube" ng-model="newsData.news_youtube" placeholder="Add link to youtube video" />
+							</p>
+							<p>
+								<label for="news_vimeo">Vimeo link: </label>
+								<input type="text" name="news_vimeo" ng-model="newsData.news_vimeo" placeholder="Add link to vimeo video" />
+							</p>
+							<p><button ng-click="confirmAdd()"><i class="fa fa-plus-circle"></i> Add News</button></p>
+						</form>
+						<!-- Confirm publication -->
+						<div ng-show="showConfirm">
+							<div class="news-preview">
+								<div class="single-news-thumb-cont">
+									<div class="single-news-thumb-head">
+										<h3 class="single-news-thumb-h3" ng-bind="newsData.news_title"></h3>
+									</div>
+									<div class="thumb-wrap">
+										<img src="{{newsData.news_picture}}" />
+									</div>
+									<p class="single-news-thumb-p" ng-bind="newsData.news_content"></p>
+								</div>
+							</div>
+							<div class="wrap-btn">
+								<div ng-click="publishNews()" ng-bind-html="newsPublishedMsg"></div>
+								<button ng-click="AddNews()"><i class="fa fa-plus-circle"></i> Confirm</button></p>
+							</div>
+						</div>
+						<!-- Gallery -->
+	                    <div class="news-gallery" ng-show="viewGallery">
+	                    	<ul>
+	                    		<li ng-repeat="pic in galleryObj track by $index" ng-class="{selected: $index==selectedIndex}">
+	                    			<div ng-click="selectThumb($index, pic.link)">
+	                    				<img src="{{pic.link}}"/>
+	                    				<p ng-bind="pic.link"></p>
+	                    			</div>
+	                    			<div class="delete-picture" ng-click="delete_picture(pic.id, pic.link)"><i class="fa fa-trash"></i></div>
+	                    		</li>
+	                    	</ul>
+	                    </div>
+	                    <!-- Alert Message -->
+	                    <div class="alert-message" ng-show="alertMsg">
+	                    	<p>Are you sure you want to delete picture id: <strong>{{pictureToDelete}}</strong> ?</p>
+	                    	<button ng-click="confirm_delete_picture();"><i class="fa fa-trash"></i> Delete</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div><!-- morph-button -->
+	</div><!-- end col-left -->
+	<div class="col column-right">
+		<div class="morph-button morph-button-modal morph-button-modal-3 modal-big morph-button-fixed">
+	        <button type="button" ng-click="update_news()"><i class="fa fa-newspaper-o"></i> Show News</button>
+	        <div class="morph-content">
+	            <div>
+	                <div class="content-style-form content-style-form-1">
+	                    <span class="icon icon-close" ng-click="backToList()">Close the dialog</span>
+	                    <h2><i class="fa fa-newspaper-o"></i> Skin and Ink news
+	                    	<span class="btn blue" ng-show="viewGallery" ng-click="showUploader = !showUploader"><i class="fa fa-plus-square"></i> Add Picture</span>
+	                    	<span class="btn" ng-show="showeditNews && !showConfirm && !viewGallery" ng-click="backToList();"><i class="fa fa-reply"></i> Back to list</span>
+	                    	<span class="btn" ng-show="showConfirm || viewGallery" ng-click="backToEdit()"><i class="fa fa-reply"></i> Back to Edit</span>
+	                    </h2>
+	                    <!-- Update Message -->
+	                    <div class="wrap-message">
+		                    <div class="success-message" ng-show="successMsg">
+		                    	<p ng-bind-html="messageNews"></p>
+		                    </div>
+		                </div>
+		                <!-- Alert Message -->
+	                    <div class="alert-message" ng-show="alertMsg">
+	                    	<p>Are you sure you want to delete <strong>{{tattoistName}}</strong> ?</p>
+	                    	<button ng-click="confirm_delete();"><i class="fa fa-times-circle"></i> Delete</button>
+	                    </div>
+		                <!-- Loader -->
+	                    <div class="loader" ng-show="showLoader">
+	                    	<i class="fa fa-cog rotate"></i>
+	                    </div>
+	                    <!-- Display News List -->
+	                    <div class="tattoList-wrapper" ng-hide="showeditNews">
+		                    <ul class="tattooList clearfix">
+		                    	<li ng-repeat="news in newsObj">
+									<p ng-bind="news.title"></p>
+									<span class="sub-edit-big" ng-click="editNews(news.id)"><i class="fa fa-pencil-square-o"></i> Edit</span>
+									<span class="sub-edit-big" ng-click=""><i class="fa fa-trash"></i> Delete</span>
+									<span class="fullwidth green" ng-show="news.published == 1" ng-click=""><i class="fa fa-eye"></i> Published</span>
+									<span class="fullwidth" ng-show="news.published == 0" ng-click=""><i class="fa fa-eye-slash"></i> Unpublished</span>
+								</li>
+							</ul>
+						</div>
+						<!-- Edit News -->
+	                    <form ng-repeat="news in newsObj track by $index" ng-show="news.id == newsID">
+							<p>
+								<label for="news_title">News Title: </label>
+								<input type="text" name="news_title" ng-model="newsData.news_title" placeholder="{{news.title}}" ng-click="newsData.news_title=news.title" />
+							</p>
+							<p>
+								<label for="news_content">News Content: </label>
+								<textarea name="news_content" ng-model="newsData.news_content" placeholder="{{news.content}}" ng-click="newsData.news_content=news.content"></textarea>
+							</p>
+							<p class="clearfix">
+								<label for="news_picture">Picture: </label>
+								<input class="inputwithbtn" type="text" name="news_picture" placeholder="{{news.picture}}" ng-model="newsData.news_picture"/>
+								<button class="sideinput" ng-click="display_gallery()"><i class="fa fa-file-image-o"></i> Gallery</button>
+							</p>
+							<p>
+								<label for="news_youtube">Youtube link: </label>
+								<input type="text" name="news_youtube" ng-model="newsData.news_youtube" placeholder="{{news.youtube_video}}" ng-click="newsData.news_youtube=news.youtube_video" />
+							</p>
+							<p>
+								<label for="news_vimeo">Vimeo link: </label>
+								<input type="text" name="news_vimeo" ng-model="newsData.news_vimeo" placeholder="{{news.vimeo_video}}" ng-click="newsData.news_vimeo=news.vimeo_video" />
+							</p>
+							<p>
+								<button ng-click="confirm_update(news.published)"><i class="fa fa-cloud-upload"></i> Update</button>
+							</p>
+						</form>
+						<!-- Confirm publication -->
+						<div ng-show="showConfirm">
+							<div class="news-preview">
+								<div class="single-news-thumb-cont">
+									<div class="single-news-thumb-head">
+										<h3 class="single-news-thumb-h3" ng-bind="newsData.news_title"></h3>
+									</div>
+									<div class="thumb-wrap">
+										<img src="{{newsData.news_picture}}" />
+									</div>
+									<p class="single-news-thumb-p" ng-bind="newsData.news_content"></p>
+								</div>
+							</div>
+							<div class="wrap-btn">
+								<div ng-click="publishNews()" ng-bind-html="newsPublishedMsg"></div>
+								<button ng-click="UpdateNews()"><i class="fa fa-plus-circle"></i> Confirm</button></p>
+							</div>
+						</div>
+						<!-- Gallery -->
+	                    <div class="news-gallery" ng-show="viewGallery">
+	                    	<ul>
+	                    		<li ng-repeat="pic in galleryObj track by $index" ng-class="{selected:  pic.link==newsData.news_picture}">
+	                    			<div ng-click="selectThumb($index, pic.link, true)">
+	                    				<img src="{{pic.link}}"/>
+	                    				<p ng-bind="pic.link"></p>
+	                    			</div>
+	                    			<div class="delete-picture" ng-click="delete_picture(pic.id, pic.link)"><i class="fa fa-trash"></i></div>
+	                    		</li>
+	                    	</ul>
+	                    </div>
+					</div>
+	            </div>
+	        </div>
+	    </div><!-- morph-button -->
+	</div><!-- end col-right -->
+
+
