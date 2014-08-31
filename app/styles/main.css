@@ -4,6 +4,9 @@
 .green {
   color: green;
 }
+.blue {
+  background-color: rgb(30, 136, 196) !important;
+}
 
 
 
@@ -98,15 +101,25 @@
 .morph-content span.sub-edit {
   cursor: pointer;
 }
+.morph-content span.sub-edit-big {
+  cursor: pointer;
+  width: auto; 
+  display: inline-block;
+  margin-left: 12px;
+}
+.morph-content span.sub-edit-big.nocursor {
+  cursor: default;
+}
 
 .morph-button.open .content-style-form-1 h2{
   padding-top: 2em;
 } 
 
-.morph-button.open .content-style-form-1 h2 span{
+.morph-button.open .content-style-form-1 h2 span.btn{
   float: right;
   font-size: 12px;
   padding: 4px;
+  margin-right: 10px;
   background-color: rgb(255, 83, 83);
   color: #fff;
   font-weight: normal;
@@ -140,7 +153,21 @@
   font-size: 30px;
   width: 30px;
   height: 30px;
-  margin: 40% auto 0;
+  margin: 20% auto 0;
+}
+
+/* Form elements*/
+
+.morph-content button.sideinput {
+  width: 30%;
+  float: left;
+  margin-top: 0;
+  padding: 10px;
+  margin-left: 10px;
+}
+.morph-content input.inputwithbtn {
+  width: 60% !important;
+  float: left;
 }
 
 
@@ -170,7 +197,7 @@ ul.tattooList {
 
     ul.tattooList li p {
      float: left;
-     width: 60%;
+     width: 76%;
      text-transform: uppercase;
      font-weight: bold;
     }
@@ -181,6 +208,55 @@ ul.tattooList {
      font-size: .8em;
      padding: 20px 0px 0px;
     }
+
+
+
+
+
+/* --------------------------
+  # GALLERY NEWS
+----------------------------*/
+
+.news-gallery {
+  height: 500px;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+  .news-gallery ul{
+    list-style: none;
+  }
+    .news-gallery ul li{
+      position: relative;
+      width: 92%;
+      display: inline-block;
+      padding: 4px;
+      margin: 10px 0 0 4px;
+      background-color: black;
+      cursor: pointer;
+    }
+      .news-gallery ul li img{
+        max-width: 20%;
+      }
+      .news-gallery ul li.selected{
+        opacity: .4;
+        background-color: gray;
+      }
+      .news-gallery ul li p{
+        color: #6d6d6d;
+        font-size: 10px;
+        padding-right: 10px;
+        display: inline-block;
+        float: right;
+      }
+      .news-gallery ul li .delete-picture {
+        left: -20px;
+        position: absolute;
+        top: 6px;
+        z-index: 999;
+      }
+
+
+
 
 
 

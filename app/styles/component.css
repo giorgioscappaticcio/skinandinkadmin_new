@@ -227,9 +227,15 @@
 }
 
 .morph-button-modal-3.open .morph-content {
-	margin: -255px 0 0 -210px;
+	margin: -255px 0 0 -220px;
 	width: 420px;
 	height: 510px;
+}
+
+.morph-button-modal-3.open.modal-big .morph-content {
+	margin: -255px 0 0 -330px;
+	width: 660px;
+	height: 610px;
 }
 
 .morph-button-modal-3.open .morph-content > div {

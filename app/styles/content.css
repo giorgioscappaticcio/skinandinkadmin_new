@@ -176,8 +176,8 @@
 
 .content-style-form h2 {
 	margin: 0;
-	padding: 1.4em 1.3em 0.4em 0em;
-	text-align: center;
+	padding: 1.4em 1.3em 0.4em 1.5em;
+	text-align: left;
 	font-weight: 300;
 	font-size: 1.2em;
 	text-transform: uppercase;
@@ -203,7 +203,8 @@
 }
 
 .content-style-form input[type="text"],
-.content-style-form input[type="password"] {
+.content-style-form input[type="password"],
+.content-style-form textarea {
 	padding: 10px;
 	width: 92%;
 	border: 2px solid #ebd3bd;
@@ -221,6 +222,10 @@
 
 .content-style-form input:focus {
 	outline: 0;
+}
+.content-style-form textarea {
+	font-size: 12px;
+	height: 80px;
 }
 
 .content-style-form button {

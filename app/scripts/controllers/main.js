@@ -26,6 +26,7 @@ angular.module('adminApp')
 	$scope.backHome = function () {
 		$scope.isVisible = !$scope.isVisible;
 		$scope.fb_integration = false;
+		$scope.shownews = false;
 	}
 });
 
