@@ -11,6 +11,10 @@
 angular.module('adminApp')
 	.service('CommonMain', function CommonMain($http, $q) {
      
+		////// ********************* //////
+		//////	FB INTEGRATION CALLS //////
+		////// ********************* //////
+
 		this.general_info = function() {
 
 		var d = $q.defer();
@@ -132,6 +136,11 @@ angular.module('adminApp')
 	 		
 	 		return d.promise;
 	   	}
+
+	   	
+	   	////// ********************* //////
+	   	//////	NEWS CALLS 			 //////
+	   	////// ********************* //////
 
 	   	this.get_news = function() {
 

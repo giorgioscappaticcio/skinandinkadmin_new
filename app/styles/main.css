@@ -188,7 +188,7 @@
   # TATTOO LIST
 ----------------------------*/
 .tattoList-wrapper {
-  height: 380px;
+  height: 480px;
   overflow-y: scroll;
   margin-top: 10px;
 }
@@ -232,7 +232,7 @@ ul.tattooList {
 ----------------------------*/
 
 .news-gallery {
-  height: 500px;
+  height: 480px;
   overflow-y: scroll;
   margin-top: 10px;
 }
@@ -318,7 +318,7 @@ ul.tattooList {
   width: 86%;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   background: transparent;
   color: white;
   padding: 6px 6px 0px;
@@ -396,6 +396,6 @@ ul.tattooList {
   /*overflow:hidden;*/
 }  
  
--moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
